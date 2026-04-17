@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leadership | Premier Services, LLC</title>
+  <meta name="description" content="Meet the leadership team at Premier Services, LLC. Experienced professionals dedicated to excellence in construction and project management.">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Montserrat', sans-serif; }
+    
+    .leader-detail-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      margin-bottom: 60px;
+    }
+    
+    .leader-detail-inner {
+      display: grid;
+      grid-template-columns: 350px 1fr;
+    }
+    
+    .leader-detail-image {
+      height: 100%;
+      min-height: 450px;
+    }
+    
+    .leader-detail-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 450px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 30px;
+      background: linear-gradient(135deg, #f3f5f8 0%, #e4e9f0 100%);
+      border-right: 1px solid rgba(11, 45, 90, 0.08);
+      color: var(--primary-color);
+      text-align: center;
+    }
+
+    .leader-detail-placeholder-icon {
+      width: 120px;
+      height: 120px;
+      border: 2px dashed rgba(11, 45, 90, 0.35);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .leader-detail-placeholder-icon svg {
+      width: 100%;
+      height: 100%;
+      max-width: 56px;
+      max-height: 56px;
+      fill: var(--primary-color);
+      opacity: 0.75;
+    }
+
+    .leader-detail-placeholder-label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .leader-detail-placeholder-note {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 240px;
+      color: rgba(11, 45, 90, 0.8);
+    }
+    
+    .leader-detail-content {
+      padding: 50px;
+    }
+    
+    .leader-detail-content h2 {
+      font-size: 2.2rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    
+    .leader-detail-role {
+      font-size: 1.1rem;
+      color: var(--secondary-color);
+      font-weight: 600;
+      margin-bottom: 25px;
+      padding-bottom: 25px;
+      border-bottom: 2px solid var(--border-color);
+    }
+    
+    .leader-detail-content p {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--text-dark);
+      margin-bottom: 15px;
+    }
+    
+    @media (max-width: 992px) {
+      .leader-detail-inner {
+        grid-template-columns: 1fr;
+      }
+      
+      .leader-detail-image {
+        min-height: 350px;
+      }
+
+      .leader-detail-placeholder {
+        min-height: 350px;
+      }
+      
+      .leader-detail-content {
+        padding: 30px;
+      }
+      
+      .leader-detail-content h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-text">PREMIER <span>SERVICES</span></span>
+      </a>
+      
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link" data-en="Home" data-es="Inicio">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle active" data-en="Who We Are" data-es="Quiénes Somos">Who We Are</a>
+          <div class="dropdown-menu">
+            <a href="about.html" data-en="Mission & Core Values" data-es="Misión y Valores">Mission & Core Values</a>
+            <a href="leadership.html" data-en="Leadership" data-es="Liderazgo">Leadership</a>
+            <a href="projects.html" data-en="Projects" data-es="Proyectos">Projects</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="services.html" class="nav-link" data-en="Services" data-es="Servicios">Services</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-en="Work With Us" data-es="Trabaja con Nosotros">Work With Us</a>
+          <div class="dropdown-menu">
+            <a href="subcontractors.html" data-en="Subcontractors" data-es="Subcontratistas">Subcontractors</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link" data-en="Contact" data-es="Contacto">Contact</a>
+        </li>
+      </ul>
+      
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="page-header-bg">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1920&q=80" alt="Leadership">
+    </div>
+    <div class="page-header-content">
+      <h1 data-en="Leadership" data-es="Liderazgo">Leadership</h1>
+      <p data-en="Meet the team driving our success" data-es="Conozca al equipo que impulsa nuestro éxito">Meet the team driving our success</p>
+    </div>
+  </section>
+
+  <!-- Leadership Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-en="Our Leadership Team" data-es="Nuestro Equipo de Liderazgo">Our Leadership Team</h2>
+        <p class="section-subtitle" data-en="Experienced professionals committed to delivering excellence in every project." data-es="Profesionales experimentados comprometidos con entregar excelencia en cada proyecto.">Experienced professionals committed to delivering excellence in every project.</p>
+        <div class="section-line"></div>
+      </div>
+      
+      <!-- Francisco Cardona -->
+      <div class="leader-detail-card">
+        <div class="leader-detail-inner">
+          <div class="leader-detail-image">
+            <div class="leader-detail-placeholder" aria-label="Photo placeholder for Francisco Cardona">
+              <div class="leader-detail-placeholder-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 12c2.76 0 5-2.24 5-5S14.76 2 12 2 7 4.24 7 7s2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z"/></svg>
+              </div>
+              <div class="leader-detail-placeholder-label">Photo Placeholder</div>
+              <div class="leader-detail-placeholder-note">Add Francisco Cardona portrait here.</div>
+            </div>
+          </div>
+          <div class="leader-detail-content">
+            <h2 data-en="Francisco Cardona" data-es="Francisco Cardona">Francisco Cardona</h2>
+            <div class="leader-detail-role" data-en="Founder & Managing Director" data-es="Fundador y Director General">Founder & Managing Director</div>
+            <p data-en="Francisco Cardona is the Founder and Managing Director of Premier Services, LLC, a Puerto Rico-based construction and project management company. He specializes in residential reconstruction, site development, and the execution of federally funded projects." data-es="Francisco Cardona es el Fundador y Director General de Premier Services, LLC, una empresa de construcción y gestión de proyectos con sede en Puerto Rico. Se especializa en reconstrucción residencial, desarrollo de sitios y la ejecución de proyectos financiados federalmente.">Francisco Cardona is the Founder and Managing Director of Premier Services, LLC, a Puerto Rico-based construction and project management company. He specializes in residential reconstruction, site development, and the execution of federally funded projects.</p>
+            <p data-en="He holds a Master's degree in Administration, bringing a strong foundation in management, operations, and organizational leadership to project delivery. In addition, his experience as a real estate broker provides valuable insight into property valuation, market conditions, and investment potential in Puerto Rico." data-es="Posee una Maestría en Administración, aportando una sólida base en gestión, operaciones y liderazgo organizacional a la entrega de proyectos. Además, su experiencia como corredor de bienes raíces proporciona información valiosa sobre valoración de propiedades, condiciones del mercado y potencial de inversión en Puerto Rico.">He holds a Master's degree in Administration, bringing a strong foundation in management, operations, and organizational leadership to project delivery. In addition, his experience as a real estate broker provides valuable insight into property valuation, market conditions, and investment potential in Puerto Rico.</p>
+            <p data-en="Francisco is focused on operational efficiency, cost control, and reliable execution, positioning Premier Services as a trusted partner for developers, contractors, and U.S.-based firms operating in Puerto Rico." data-es="Francisco se enfoca en la eficiencia operacional, control de costos y ejecución confiable, posicionando a Premier Services como un socio de confianza para desarrolladores, contratistas y empresas estadounidenses que operan en Puerto Rico.">Francisco is focused on operational efficiency, cost control, and reliable execution, positioning Premier Services as a trusted partner for developers, contractors, and U.S.-based firms operating in Puerto Rico.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Kiara Rodriguez -->
+      <div class="leader-detail-card">
+        <div class="leader-detail-inner">
+          <div class="leader-detail-image">
+            <div class="leader-detail-placeholder" aria-label="Photo placeholder for Kiara Rodriguez">
+              <div class="leader-detail-placeholder-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 12c2.76 0 5-2.24 5-5S14.76 2 12 2 7 4.24 7 7s2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z"/></svg>
+              </div>
+              <div class="leader-detail-placeholder-label">Photo Placeholder</div>
+              <div class="leader-detail-placeholder-note">Add Kiara Rodriguez portrait here.</div>
+            </div>
+          </div>
+          <div class="leader-detail-content">
+            <h2 data-en="Kiara Rodriguez" data-es="Kiara Rodriguez">Kiara Rodriguez</h2>
+            <div class="leader-detail-role" data-en="Legal & Operations Director" data-es="Directora Legal y de Operaciones">Legal & Operations Director</div>
+            <p data-en="Kiara Rodriguez is the Legal & Operations Director at Premier Services, LLC, where she oversees legal strategy, compliance, and operational support across all projects." data-es="Kiara Rodriguez es la Directora Legal y de Operaciones de Premier Services, LLC, donde supervisa la estrategia legal, el cumplimiento y el soporte operativo en todos los proyectos.">Kiara Rodriguez is the Legal & Operations Director at Premier Services, LLC, where she oversees legal strategy, compliance, and operational support across all projects.</p>
+            <p data-en="She is a licensed attorney in Puerto Rico with experience across the Puerto Rico Court of Appeals, municipalities, government entities, and private practice. Her background includes handling complex legal matters, contract development, and regulatory compliance." data-es="Es una abogada licenciada en Puerto Rico con experiencia en el Tribunal de Apelaciones de Puerto Rico, municipios, entidades gubernamentales y práctica privada. Su experiencia incluye el manejo de asuntos legales complejos, desarrollo de contratos y cumplimiento regulatorio.">She is a licensed attorney in Puerto Rico with experience across the Puerto Rico Court of Appeals, municipalities, government entities, and private practice. Her background includes handling complex legal matters, contract development, and regulatory compliance.</p>
+            <p data-en="Kiara also brings valuable knowledge of the construction sector, supporting project execution through legal oversight, risk management, and structured documentation. Her role strengthens Premier Services' ability to operate efficiently within regulated environments, including government-funded projects." data-es="Kiara también aporta valioso conocimiento del sector de la construcción, apoyando la ejecución de proyectos a través de supervisión legal, gestión de riesgos y documentación estructurada. Su rol fortalece la capacidad de Premier Services para operar eficientemente en entornos regulados, incluyendo proyectos financiados por el gobierno.">Kiara also brings valuable knowledge of the construction sector, supporting project execution through legal oversight, risk management, and structured documentation. Her role strengthens Premier Services' ability to operate efficiently within regulated environments, including government-funded projects.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Jiovan Cardona -->
+      <div class="leader-detail-card">
+        <div class="leader-detail-inner">
+          <div class="leader-detail-image">
+            <div class="leader-detail-placeholder" aria-label="Photo placeholder for Jiovan Cardona">
+              <div class="leader-detail-placeholder-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 12c2.76 0 5-2.24 5-5S14.76 2 12 2 7 4.24 7 7s2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z"/></svg>
+              </div>
+              <div class="leader-detail-placeholder-label">Photo Placeholder</div>
+              <div class="leader-detail-placeholder-note">Add Jiovan Cardona portrait here.</div>
+            </div>
+          </div>
+          <div class="leader-detail-content">
+            <h2 data-en="Jiovan Cardona" data-es="Jiovan Cardona">Jiovan Cardona</h2>
+            <div class="leader-detail-role" data-en="Project Manager (On-Site)" data-es="Gerente de Proyecto (En Sitio)">Project Manager (On-Site)</div>
+            <p data-en="Jiovan Cardona serves as the On-Site Project Manager at Premier Services, LLC, overseeing daily field operations and ensuring projects are executed efficiently and according to plan." data-es="Jiovan Cardona se desempeña como Gerente de Proyecto en Sitio en Premier Services, LLC, supervisando las operaciones diarias de campo y asegurando que los proyectos se ejecuten eficientemente y según lo planificado.">Jiovan Cardona serves as the On-Site Project Manager at Premier Services, LLC, overseeing daily field operations and ensuring projects are executed efficiently and according to plan.</p>
+            <p data-en="He is responsible for coordinating crews, managing schedules, and maintaining quality control across all phases of construction. His hands-on approach and field experience play a critical role in keeping projects on track, within budget, and aligned with company standards." data-es="Es responsable de coordinar cuadrillas, gestionar horarios y mantener el control de calidad en todas las fases de la construcción. Su enfoque práctico y experiencia de campo juegan un papel crítico en mantener los proyectos en marcha, dentro del presupuesto y alineados con los estándares de la empresa.">He is responsible for coordinating crews, managing schedules, and maintaining quality control across all phases of construction. His hands-on approach and field experience play a critical role in keeping projects on track, within budget, and aligned with company standards.</p>
+            <p data-en="Jiovan works closely with leadership and subcontractors to ensure clear communication, accountability, and consistent progress on every job site." data-es="Jiovan trabaja en estrecha colaboración con el liderazgo y los subcontratistas para garantizar una comunicación clara, responsabilidad y progreso consistente en cada sitio de trabajo.">Jiovan works closely with leadership and subcontractors to ensure clear communication, accountability, and consistent progress on every job site.</p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <h3>PREMIER <span>SERVICES</span></h3>
+        <p data-en="Strategic Construction & Project Management in Puerto Rico. Delivering high-quality residential and infrastructure projects with precision, speed, and accountability." data-es="Construcción Estratégica y Gestión de Proyectos en Puerto Rico. Entregando proyectos residenciales y de infraestructura de alta calidad con precisión, velocidad y responsabilidad.">Strategic Construction & Project Management in Puerto Rico. Delivering high-quality residential and infrastructure projects with precision, speed, and accountability.</p>
+        <div class="footer-social">
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4 data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h4>
+        <ul>
+          <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+          <li><a href="about.html" data-en="About Us" data-es="Sobre Nosotros">About Us</a></li>
+          <li><a href="services.html" data-en="Services" data-es="Servicios">Services</a></li>
+          <li><a href="projects.html" data-en="Projects" data-es="Proyectos">Projects</a></li>
+          <li><a href="contact.html" data-en="Contact" data-es="Contacto">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4 data-en="Work With Us" data-es="Trabaja con Nosotros">Work With Us</h4>
+        <ul>
+          <li><a href="subcontractors.html" data-en="Subcontractors" data-es="Subcontratistas">Subcontractors</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links footer-contact">
+        <h4 data-en="Contact Info" data-es="Información de Contacto">Contact Info</h4>
+        <p>
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span data-en="Puerto Rico" data-es="Puerto Rico">Puerto Rico</span>
+        </p>
+        <p>
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <span>787-365-6528   787-565-7089</span>
+        </p>
+        <p>
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>info@cardonapropertygroup.com</span>
+        </p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© 2024 Premier Services, LLC. <span data-en="All Rights Reserved." data-es="Todos los Derechos Reservados.">All Rights Reserved.</span></p>
+    </div>
+  </footer>
+
+  <script>
+    // Language Toggle
+    let currentLang = 'en';
+    
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+      });
+      
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+    }
+    
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu toggle
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('navMenu').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

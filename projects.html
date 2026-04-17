@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Premier Services, LLC</title>
+  <meta name="description" content="Explore our portfolio of construction and project management projects across Puerto Rico. Residential, infrastructure, and government-funded projects.">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Montserrat', sans-serif; }
+    
+    .projects-masonry {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+    
+    .project-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      height: 350px;
+    }
+    
+    .project-item.large {
+      grid-column: span 2;
+      grid-row: span 2;
+      height: 725px;
+    }
+    
+    .project-media {
+      position: absolute;
+      inset: 0;
+    }
+
+    .project-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.45s ease, transform 0.5s ease;
+    }
+
+    .project-image.after {
+      opacity: 1;
+    }
+
+    .project-image.before {
+      opacity: 0;
+    }
+
+    .project-item:hover .project-image.after {
+      opacity: 0;
+    }
+
+    .project-item:hover .project-image.before {
+      opacity: 1;
+    }
+
+    .project-item:hover .project-media img {
+      transform: scale(1.1);
+    }
+    
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26, 54, 93, 0.95) 0%, rgba(26, 54, 93, 0.3) 50%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 30px;
+      opacity: 0.7;
+      transition: all 0.3s ease;
+    }
+    
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+    
+    .project-category {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    
+    .project-overlay h3 {
+      color: var(--white);
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+    
+    .project-overlay p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .project-item:hover .project-overlay p {
+      max-height: 100px;
+    }
+    
+    @media (max-width: 992px) {
+      .projects-masonry {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .project-item.large {
+        grid-column: span 2;
+        grid-row: span 1;
+        height: 350px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .projects-masonry {
+        grid-template-columns: 1fr;
+      }
+      
+      .project-item.large {
+        grid-column: span 1;
+      }
+
+      .project-image.after {
+        opacity: 0;
+      }
+
+      .project-image.before {
+        opacity: 1;
+      }
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      .project-image.after {
+        opacity: 0;
+      }
+
+      .project-image.before {
+        opacity: 1;
+      }
+    }
+  </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-text">PREMIER <span>SERVICES</span></span>
+      </a>
+      
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link" data-en="Home" data-es="Inicio">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle active" data-en="Who We Are" data-es="Quiénes Somos">Who We Are</a>
+          <div class="dropdown-menu">
+            <a href="about.html" data-en="Mission & Core Values" data-es="Misión y Valores">Mission & Core Values</a>
+            <a href="leadership.html" data-en="Leadership" data-es="Liderazgo">Leadership</a>
+            <a href="projects.html" data-en="Projects" data-es="Proyectos">Projects</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="services.html" class="nav-link" data-en="Services" data-es="Servicios">Services</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-en="Work With Us" data-es="Trabaja con Nosotros">Work With Us</a>
+          <div class="dropdown-menu">
+            <a href="subcontractors.html" data-en="Subcontractors" data-es="Subcontratistas">Subcontractors</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link" data-en="Contact" data-es="Contacto">Contact</a>
+        </li>
+      </ul>
+      
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="page-header-bg">
+      <img src="imgs/pic14.jpg" alt="Construction Projects">
+    </div>
+    <div class="page-header-content">
+      <h1 data-en="Our Projects" data-es="Nuestros Proyectos">Our Projects</h1>
+      <p data-en="Delivering excellence across Puerto Rico" data-es="Entregando excelencia en Puerto Rico">Delivering excellence across Puerto Rico</p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-en="Featured Projects" data-es="Proyectos Destacados">Featured Projects</h2>
+        <p class="section-subtitle" data-en="Explore our portfolio of successful construction and project management endeavors." data-es="Explore nuestro portafolio de exitosos proyectos de construcción y gestión.">Explore our portfolio of successful construction and project management endeavors.</p>
+        <div class="section-line"></div>
+      </div>
+      
+      <div class="projects-masonry">
+        <!-- Project 1 - Large -->
+        <div class="project-item large">
+          <div class="project-media">
+            <img class="project-image after" src="imgs/despues1.jpg" alt="Residential Construction after">
+            <img class="project-image before" src="imgs/antes1.jpg" alt="Residential Construction before">
+          </div>
+          <div class="project-overlay">
+            <span class="project-category" data-en="Residential Construction" data-es="Construcción Residencial">Residential Construction</span>
+            <h3 data-en="Modern Home Development" data-es="Desarrollo de Vivienda Moderna">Modern Home Development</h3>
+            <p data-en="Complete ground-up residential construction featuring modern design and sustainable building practices." data-es="Construcción residencial completa desde cero con diseño moderno y prácticas de construcción sostenibles.">Complete ground-up residential construction featuring modern design and sustainable building practices.</p>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="project-item">
+          <div class="project-media">
+            <img class="project-image after" src="imgs/despues2.jpg" alt="Home Reconstruction after">
+            <img class="project-image before" src="imgs/antes2.jpg" alt="Home Reconstruction before">
+          </div>
+          <div class="project-overlay">
+            <span class="project-category" data-en="Reconstruction" data-es="Reconstrucción">Reconstruction</span>
+            <h3 data-en="Home Rehabilitation" data-es="Rehabilitación de Vivienda">Home Rehabilitation</h3>
+            <p data-en="Full home reconstruction after storm damage." data-es="Reconstrucción completa de vivienda después de daños por tormenta.">Full home reconstruction after storm damage.</p>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="project-item">
+          <div class="project-media">
+            <img class="project-image after" src="imgs/despues3.jpg" alt="Government Project after">
+            <img class="project-image before" src="imgs/antes3.jpg" alt="Government Project before">
+          </div>
+          <div class="project-overlay">
+            <span class="project-category" data-en="Government Funded" data-es="Financiado por Gobierno">Government Funded</span>
+            <h3 data-en="CDBG-MIT Housing Project" data-es="Proyecto de Vivienda CDBG-MIT">CDBG-MIT Housing Project</h3>
+            <p data-en="Federally funded residential reconstruction program." data-es="Programa de reconstrucción residencial financiado federalmente.">Federally funded residential reconstruction program.</p>
+          </div>
+        </div>
+        
+        <!-- Project 4 -->
+        <div class="project-item">
+          <div class="project-media">
+            <img class="project-image after" src="imgs/despues4.jpg" alt="Residential Development after">
+            <img class="project-image before" src="imgs/antes4.jpg" alt="Residential Development before">
+          </div>
+          <div class="project-overlay">
+            <span class="project-category" data-en="Residential" data-es="Residencial">Residential</span>
+            <h3 data-en="Coastal Home Build" data-es="Construcción Costera">Coastal Home Build</h3>
+            <p data-en="New construction with hurricane-resistant features." data-es="Nueva construcción con características resistentes a huracanes.">New construction with hurricane-resistant features.</p>
+          </div>
+        </div>
+        
+        <!-- Project 5 -->
+        <div class="project-item">
+          <div class="project-media">
+            <img class="project-image after" src="imgs/despues1.jpg" alt="Property Renovation after">
+            <img class="project-image before" src="imgs/antes1.jpg" alt="Property Renovation before">
+          </div>
+          <div class="project-overlay">
+            <span class="project-category" data-en="Reconstruction" data-es="Reconstrucción">Reconstruction</span>
+            <h3 data-en="Historic Property Restoration" data-es="Restauración de Propiedad Histórica">Historic Property Restoration</h3>
+            <p data-en="Careful restoration preserving original character." data-es="Cuidadosa restauración preservando el carácter original.">Careful restoration preserving original character.</p>
+          </div>
+        </div>
+        
+        <!-- Project 6 - Large -->
+        <div class="project-item large">
+          <div class="project-media">
+            <img class="project-image after" src="imgs/despues2.jpg" alt="Infrastructure Project after">
+            <img class="project-image before" src="imgs/antes2.jpg" alt="Infrastructure Project before">
+          </div>
+          <div class="project-overlay">
+            <span class="project-category" data-en="Government" data-es="Gubernamental">Government</span>
+            <h3 data-en="Community Infrastructure" data-es="Infraestructura Comunitaria">Community Infrastructure</h3>
+            <p data-en="Large-scale infrastructure development project serving multiple communities across Puerto Rico. Coordination with municipalities and federal agencies for comprehensive site development and utility installation." data-es="Proyecto de desarrollo de infraestructura a gran escala sirviendo múltiples comunidades en Puerto Rico. Coordinación con municipios y agencias federales para desarrollo integral del sitio e instalación de servicios públicos.">Large-scale infrastructure development project serving multiple communities across Puerto Rico. Coordination with municipalities and federal agencies for comprehensive site development and utility installation.</p>
+          </div>
+        </div>
+        
+        <!-- Project 7 -->
+        <div class="project-item">
+          <div class="project-media">
+            <img class="project-image after" src="imgs/despues3.jpg" alt="Custom Home after">
+            <img class="project-image before" src="imgs/antes3.jpg" alt="Custom Home before">
+          </div>
+          <div class="project-overlay">
+            <span class="project-category" data-en="Residential" data-es="Residencial">Residential</span>
+            <h3 data-en="Custom Home Build" data-es="Construcción Personalizada">Custom Home Build</h3>
+            <p data-en="Bespoke residential construction project." data-es="Proyecto de construcción residencial personalizado.">Bespoke residential construction project.</p>
+          </div>
+        </div>
+        
+        <!-- Project 8 -->
+        <div class="project-item">
+          <div class="project-media">
+            <img class="project-image after" src="imgs/despues4.jpg" alt="Renovation Project after">
+            <img class="project-image before" src="imgs/antes4.jpg" alt="Renovation Project before">
+          </div>
+          <div class="project-overlay">
+            <span class="project-category" data-en="Reconstruction" data-es="Reconstrucción">Reconstruction</span>
+            <h3 data-en="Storm Damage Repair" data-es="Reparación de Daños por Tormenta">Storm Damage Repair</h3>
+            <p data-en="Complete structural repairs and upgrades." data-es="Reparaciones y mejoras estructurales completas.">Complete structural repairs and upgrades.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-en="Start Your Project" data-es="Inicie Su Proyecto">Start Your Project</h2>
+        <p class="section-subtitle" data-en="Let's discuss how we can bring your vision to life with the same dedication and excellence showcased in our portfolio." data-es="Hablemos de cómo podemos dar vida a su visión con la misma dedicación y excelencia mostrada en nuestro portafolio.">Let's discuss how we can bring your vision to life with the same dedication and excellence showcased in our portfolio.</p>
+        <div class="section-line"></div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="contact.html" class="hero-btn" data-en="Contact Us Today" data-es="Contáctenos Hoy">Contact Us Today</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <h3>PREMIER <span>SERVICES</span></h3>
+        <p data-en="Strategic Construction & Project Management in Puerto Rico. Delivering high-quality residential and infrastructure projects with precision, speed, and accountability." data-es="Construcción Estratégica y Gestión de Proyectos en Puerto Rico. Entregando proyectos residenciales y de infraestructura de alta calidad con precisión, velocidad y responsabilidad.">Strategic Construction & Project Management in Puerto Rico. Delivering high-quality residential and infrastructure projects with precision, speed, and accountability.</p>
+        <div class="footer-social">
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4 data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h4>
+        <ul>
+          <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+          <li><a href="about.html" data-en="About Us" data-es="Sobre Nosotros">About Us</a></li>
+          <li><a href="services.html" data-en="Services" data-es="Servicios">Services</a></li>
+          <li><a href="projects.html" data-en="Projects" data-es="Proyectos">Projects</a></li>
+          <li><a href="contact.html" data-en="Contact" data-es="Contacto">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4 data-en="Work With Us" data-es="Trabaja con Nosotros">Work With Us</h4>
+        <ul>
+          <li><a href="subcontractors.html" data-en="Subcontractors" data-es="Subcontratistas">Subcontractors</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links footer-contact">
+        <h4 data-en="Contact Info" data-es="Información de Contacto">Contact Info</h4>
+        <p>
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span data-en="Puerto Rico" data-es="Puerto Rico">Puerto Rico</span>
+        </p>
+        <p>
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <span>787-365-6528   787-565-7089</span>
+        </p>
+        <p>
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>info@cardonapropertygroup.com</span>
+        </p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© 2024 Premier Services, LLC. <span data-en="All Rights Reserved." data-es="Todos los Derechos Reservados.">All Rights Reserved.</span></p>
+    </div>
+  </footer>
+
+  <script>
+    // Language Toggle
+    let currentLang = 'en';
+    
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+      });
+      
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+    }
+    
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu toggle
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('navMenu').classList.toggle('active');
+    });
+    
+  </script>
+</body>
+</html>

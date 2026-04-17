@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subcontractors | Premier Services, LLC</title>
+  <meta name="description" content="Partner with Premier Services, LLC as a subcontractor. Join our network of trusted construction professionals in Puerto Rico.">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Montserrat', sans-serif; }
+    
+    .partner-section {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-bg) 100%);
+      color: var(--white);
+      padding: 100px 5%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .partner-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.1;
+    }
+    
+    .partner-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .partner-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+    
+    .partner-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+    }
+    
+    .partner-content p {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      opacity: 0.9;
+    }
+    
+    .trades-section {
+      background: var(--light-bg);
+    }
+    
+    .trades-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    
+    .trade-card {
+      background: var(--white);
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      border-bottom: 3px solid transparent;
+    }
+    
+    .trade-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      border-bottom-color: var(--secondary-color);
+    }
+    
+    .trade-card svg {
+      width: 45px;
+      height: 45px;
+      fill: var(--primary-color);
+      margin-bottom: 15px;
+    }
+    
+    .trade-card h3 {
+      font-size: 1rem;
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+    
+    .requirements-section {
+      background: var(--white);
+    }
+    
+    .requirements-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+    
+    .requirement-block {
+      padding: 30px;
+    }
+    
+    .requirement-block h3 {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .requirement-block h3 svg {
+      width: 30px;
+      height: 30px;
+      fill: var(--secondary-color);
+    }
+    
+    .requirement-list {
+      list-style: none;
+    }
+    
+    .requirement-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+    }
+    
+    .requirement-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .requirement-list svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--secondary-color);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    
+    .process-section {
+      background: var(--light-bg);
+    }
+    
+    .process-steps {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 10%;
+      right: 10%;
+      height: 4px;
+      background: var(--border-color);
+    }
+    
+    .process-step {
+      text-align: center;
+      position: relative;
+      flex: 1;
+    }
+    
+    .step-number {
+      width: 80px;
+      height: 80px;
+      background: var(--primary-color);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .process-step h3 {
+      font-size: 1.1rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+    
+    .process-step p {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      max-width: 180px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    @media (max-width: 992px) {
+      .requirements-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .process-steps {
+        flex-direction: column;
+        gap: 40px;
+      }
+      
+      .process-steps::before {
+        display: none;
+      }
+    }
+  </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-text">PREMIER <span>SERVICES</span></span>
+      </a>
+      
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link" data-en="Home" data-es="Inicio">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-en="Who We Are" data-es="Quiénes Somos">Who We Are</a>
+          <div class="dropdown-menu">
+            <a href="about.html" data-en="Mission & Core Values" data-es="Misión y Valores">Mission & Core Values</a>
+            <a href="leadership.html" data-en="Leadership" data-es="Liderazgo">Leadership</a>
+            <a href="projects.html" data-en="Projects" data-es="Proyectos">Projects</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="services.html" class="nav-link" data-en="Services" data-es="Servicios">Services</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle active" data-en="Work With Us" data-es="Trabaja con Nosotros">Work With Us</a>
+          <div class="dropdown-menu">
+            <a href="subcontractors.html" data-en="Subcontractors" data-es="Subcontratistas">Subcontractors</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link" data-en="Contact" data-es="Contacto">Contact</a>
+        </li>
+      </ul>
+      
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="page-header-bg">
+      <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1920&q=80" alt="Subcontractors">
+    </div>
+    <div class="page-header-content">
+      <h1 data-en="Partner With Us" data-es="Asóciese con Nosotros">Partner With Us</h1>
+      <p data-en="Join our network of trusted subcontractors" data-es="Únase a nuestra red de subcontratistas de confianza">Join our network of trusted subcontractors</p>
+    </div>
+  </section>
+
+  <!-- Partner Section -->
+  <section class="partner-section">
+    <div class="partner-bg">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80" alt="Construction Partnership">
+    </div>
+    <div class="partner-content">
+      <h2 data-en="Build With Us" data-es="Construya con Nosotros">Build With Us</h2>
+      <p data-en="At Premier Services, we value strong partnerships with reliable subcontractors who share our commitment to quality, safety, and excellence. We believe in building long-term relationships based on mutual respect, fair treatment, and shared success. When you partner with us, you become part of a team dedicated to delivering outstanding construction projects across Puerto Rico." data-es="En Premier Services, valoramos las sólidas asociaciones con subcontratistas confiables que comparten nuestro compromiso con la calidad, seguridad y excelencia. Creemos en construir relaciones a largo plazo basadas en el respeto mutuo, trato justo y éxito compartido. Cuando se asocia con nosotros, se convierte en parte de un equipo dedicado a entregar proyectos de construcción excepcionales en Puerto Rico.">At Premier Services, we value strong partnerships with reliable subcontractors who share our commitment to quality, safety, and excellence. We believe in building long-term relationships based on mutual respect, fair treatment, and shared success. When you partner with us, you become part of a team dedicated to delivering outstanding construction projects across Puerto Rico.</p>
+    </div>
+  </section>
+
+  <!-- Trades Section -->
+  <section class="section trades-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-en="Trades We Work With" data-es="Oficios con los que Trabajamos">Trades We Work With</h2>
+        <p class="section-subtitle" data-en="We're always looking for skilled professionals in these areas." data-es="Siempre buscamos profesionales calificados en estas áreas.">We're always looking for skilled professionals in these areas.</p>
+        <div class="section-line"></div>
+      </div>
+      
+      <div class="trades-grid">
+        <div class="trade-card">
+          <svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+          <h3 data-en="General Contractors" data-es="Contratistas Generales">General Contractors</h3>
+        </div>
+        
+        <div class="trade-card">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l4.59-4.58L18 11l-6 6z"/></svg>
+          <h3 data-en="Concrete & Masonry" data-es="Hormigón y Albañilería">Concrete & Masonry</h3>
+        </div>
+        
+        <div class="trade-card">
+          <svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+          <h3 data-en="Plumbing" data-es="Plomería">Plumbing</h3>
+        </div>
+        
+        <div class="trade-card">
+          <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+          <h3 data-en="Electrical" data-es="Eléctrico">Electrical</h3>
+        </div>
+        
+        <div class="trade-card">
+          <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+          <h3 data-en="HVAC" data-es="HVAC">HVAC</h3>
+        </div>
+        
+        <div class="trade-card">
+          <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2z"/></svg>
+          <h3 data-en="Roofing" data-es="Techos">Roofing</h3>
+        </div>
+        
+        <div class="trade-card">
+          <svg viewBox="0 0 24 24"><path d="M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.37l-1.34-1.34c-.39-.39-1.02-.39-1.41 0L9 12.25 11.75 15l8.96-8.96c.39-.39.39-1.02 0-1.41z"/></svg>
+          <h3 data-en="Painting" data-es="Pintura">Painting</h3>
+        </div>
+        
+        <div class="trade-card">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          <h3 data-en="Flooring & Tile" data-es="Pisos y Baldosas">Flooring & Tile</h3>
+        </div>
+        
+        <div class="trade-card">
+          <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <h3 data-en="Demolition & Hauling" data-es="Demolición y Transporte">Demolition & Hauling</h3>
+        </div>
+        
+        <div class="trade-card">
+          <svg viewBox="0 0 24 24"><path d="M3 5v14c0 1.1.89 2 2 2h6V3H5c-1.11 0-2 .9-2 2zm16-2h-6v18h6c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+          <h3 data-en="Carpentry" data-es="Carpintería">Carpentry</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Requirements Section -->
+  <section class="section requirements-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-en="Requirements" data-es="Requisitos">Requirements</h2>
+        <p class="section-subtitle" data-en="What we look for in our subcontractor partners." data-es="Lo que buscamos en nuestros socios subcontratistas.">What we look for in our subcontractor partners.</p>
+        <div class="section-line"></div>
+      </div>
+      
+      <div class="requirements-grid">
+        <div class="requirement-block">
+          <h3>
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <span data-en="Documentation" data-es="Documentación">Documentation</span>
+          </h3>
+          <ul class="requirement-list">
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span data-en="Requirement 1" data-es="Requisito 1">Requirement 1</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span data-en="Requirement 2" data-es="Requisito 2">Requirement 2</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span data-en="Requirement 3" data-es="Requisito 3">Requirement 3</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span data-en="Requirement 4" data-es="Requisito 4">Requirement 4</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="requirement-block">
+          <h3>
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+            <span data-en="Safety & Quality" data-es="Seguridad y Calidad">Safety & Quality</span>
+          </h3>
+          <ul class="requirement-list">
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span data-en="Requirement 5" data-es="Requisito 5">Requirement 5</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span data-en="Requirement 6" data-es="Requisito 6">Requirement 6</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span data-en="Requirement 7" data-es="Requisito 7">Requirement 7</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span data-en="Requirement 8" data-es="Requisito 8">Requirement 8</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="section process-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-en="How to Get Started" data-es="Cómo Comenzar">How to Get Started</h2>
+        <p class="section-subtitle" data-en="Our simple process to become a Premier Services subcontractor." data-es="Nuestro proceso simple para convertirse en subcontratista de Premier Services.">Our simple process to become a Premier Services subcontractor.</p>
+        <div class="section-line"></div>
+      </div>
+      
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h3 data-en="Step 1" data-es="Paso 1">Step 1</h3>
+          <p data-en="Placeholder text for step 1." data-es="Texto provisional para el paso 1.">Placeholder text for step 1.</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h3 data-en="Step 2" data-es="Paso 2">Step 2</h3>
+          <p data-en="Placeholder text for step 2." data-es="Texto provisional para el paso 2.">Placeholder text for step 2.</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h3 data-en="Step 3" data-es="Paso 3">Step 3</h3>
+          <p data-en="Placeholder text for step 3." data-es="Texto provisional para el paso 3.">Placeholder text for step 3.</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h3 data-en="Step 4" data-es="Paso 4">Step 4</h3>
+          <p data-en="Placeholder text for step 4." data-es="Texto provisional para el paso 4.">Placeholder text for step 4.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Form -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-en="Subcontractor Application" data-es="Solicitud de Subcontratista">Subcontractor Application</h2>
+        <p class="section-subtitle" data-en="Fill out the form below to start the partnership process." data-es="Complete el siguiente formulario para iniciar el proceso de asociación.">Fill out the form below to start the partnership process.</p>
+        <div class="section-line"></div>
+      </div>
+      
+      <form class="contact-form" style="max-width: 700px;">
+        <div class="form-group">
+          <label for="companyName" data-en="Company Name" data-es="Nombre de la Empresa">Company Name</label>
+          <input type="text" id="companyName" name="companyName" required>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div class="form-group">
+            <label for="contactName" data-en="Contact Name" data-es="Nombre de Contacto">Contact Name</label>
+            <input type="text" id="contactName" name="contactName" required>
+          </div>
+          <div class="form-group">
+            <label for="title" data-en="Title/Position" data-es="Título/Posición">Title/Position</label>
+            <input type="text" id="title" name="title">
+          </div>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div class="form-group">
+            <label for="email" data-en="Email" data-es="Correo Electrónico">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone" data-en="Phone" data-es="Teléfono">Phone</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="trade" data-en="Trade/Specialty" data-es="Oficio/Especialidad">Trade/Specialty</label>
+          <select id="trade" name="trade" required>
+            <option value="" data-en="Select your trade..." data-es="Seleccione su oficio...">Select your trade...</option>
+            <option value="general" data-en="General Contractor" data-es="Contratista General">General Contractor</option>
+            <option value="concrete" data-en="Concrete & Masonry" data-es="Hormigón y Albañilería">Concrete & Masonry</option>
+            <option value="plumbing" data-en="Plumbing" data-es="Plomería">Plumbing</option>
+            <option value="electrical" data-en="Electrical" data-es="Eléctrico">Electrical</option>
+            <option value="hvac" data-en="HVAC" data-es="HVAC">HVAC</option>
+            <option value="roofing" data-en="Roofing" data-es="Techos">Roofing</option>
+            <option value="painting" data-en="Painting" data-es="Pintura">Painting</option>
+            <option value="flooring" data-en="Flooring & Tile" data-es="Pisos y Baldosas">Flooring & Tile</option>
+            <option value="demolition" data-en="Demolition & Hauling" data-es="Demolición y Transporte">Demolition & Hauling</option>
+            <option value="carpentry" data-en="Carpentry" data-es="Carpintería">Carpentry</option>
+            <option value="other" data-en="Other" data-es="Otro">Other</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="experience" data-en="Years of Experience" data-es="Años de Experiencia">Years of Experience</label>
+          <input type="number" id="experience" name="experience" min="0">
+        </div>
+        
+        <div class="form-group">
+          <label for="message" data-en="Tell us about your company and capabilities" data-es="Cuéntenos sobre su empresa y capacidades">Tell us about your company and capabilities</label>
+          <textarea id="message" name="message" rows="5"></textarea>
+        </div>
+        
+        <button type="submit" class="btn-submit" data-en="Submit Application" data-es="Enviar Solicitud">Submit Application</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <h3>PREMIER <span>SERVICES</span></h3>
+        <p data-en="Strategic Construction & Project Management in Puerto Rico. Delivering high-quality residential and infrastructure projects with precision, speed, and accountability." data-es="Construcción Estratégica y Gestión de Proyectos en Puerto Rico. Entregando proyectos residenciales y de infraestructura de alta calidad con precisión, velocidad y responsabilidad.">Strategic Construction & Project Management in Puerto Rico. Delivering high-quality residential and infrastructure projects with precision, speed, and accountability.</p>
+        <div class="footer-social">
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4 data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h4>
+        <ul>
+          <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+          <li><a href="about.html" data-en="About Us" data-es="Sobre Nosotros">About Us</a></li>
+          <li><a href="services.html" data-en="Services" data-es="Servicios">Services</a></li>
+          <li><a href="projects.html" data-en="Projects" data-es="Proyectos">Projects</a></li>
+          <li><a href="contact.html" data-en="Contact" data-es="Contacto">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4 data-en="Work With Us" data-es="Trabaja con Nosotros">Work With Us</h4>
+        <ul>
+          <li><a href="subcontractors.html" data-en="Subcontractors" data-es="Subcontratistas">Subcontractors</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links footer-contact">
+        <h4 data-en="Contact Info" data-es="Información de Contacto">Contact Info</h4>
+        <p>
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span data-en="Puerto Rico" data-es="Puerto Rico">Puerto Rico</span>
+        </p>
+        <p>
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <span>787-365-6528   787-565-7089</span>
+        </p>
+        <p>
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>info@cardonapropertygroup.com</span>
+        </p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© 2024 Premier Services, LLC. <span data-en="All Rights Reserved." data-es="Todos los Derechos Reservados.">All Rights Reserved.</span></p>
+    </div>
+  </footer>
+
+  <script>
+    // Language Toggle
+    let currentLang = 'en';
+    
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+      });
+      
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+    }
+    
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu toggle
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('navMenu').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
