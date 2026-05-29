@@ -1082,7 +1082,7 @@ img {
 }
 
 .footer-about h3 span {
-  color: var(--secondary-color);
+  color: #B81010;
 }
 
 .footer-about p {
@@ -1293,6 +1293,11 @@ img {
 @media (max-width: 480px) {
   .nav-container {
     height: 70px;
+  }
+
+  .logo img {
+    height: 60px;
+    width: auto;
   }
 
   .logo-text {

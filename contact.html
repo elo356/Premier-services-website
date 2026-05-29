@@ -315,26 +315,33 @@
           <h2 data-en="Send Us a Message" data-es="Envíenos un Mensaje">Send Us a Message</h2>
           <p data-en="Fill out the form below and we'll get back to you within 24 hours." data-es="Complete el formulario y nos comunicaremos con usted en 24 horas.">Fill out the form below and we'll get back to you within 24 hours.</p>
           
-          <form class="contact-form">
+          <div data-fs-success style="background: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-bottom: 20px; display: none;">
+            <strong>¡Success!</strong> Your message has been sent successfully.
+          </div>
+          <div data-fs-error style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin-bottom: 20px; display: none;">
+            <strong>Error!</strong> There was an error sending your message.
+          </div>
+
+          <form id="contactForm" action="https://formspree.io/f/xreddgjd" method="POST">
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName" data-en="First Name" data-es="Nombre">First Name</label>
-                <input type="text" id="firstName" name="firstName" required>
+                <input type="text" id="firstName" name="firstName" data-fs-field required>
               </div>
               <div class="form-group">
                 <label for="lastName" data-en="Last Name" data-es="Apellido">Last Name</label>
-                <input type="text" id="lastName" name="lastName" required>
+                <input type="text" id="lastName" name="lastName" data-fs-field required>
               </div>
             </div>
             
             <div class="form-row">
               <div class="form-group">
                 <label for="email" data-en="Email" data-es="Correo Electrónico">Email</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" data-fs-field required>
               </div>
               <div class="form-group">
                 <label for="phone" data-en="Phone" data-es="Teléfono">Phone</label>
-                <input type="tel" id="phone" name="phone">
+                <input type="tel" id="phone" name="phone" data-fs-field>
               </div>
             </div>
             
@@ -366,10 +373,10 @@
             
             <div class="form-group">
               <label for="message" data-en="Tell us about your project" data-es="Cuéntenos sobre su proyecto">Tell us about your project</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
+              <textarea id="message" name="message" rows="5" data-fs-field required></textarea>
             </div>
-            
-            <button type="submit" class="submit-btn" data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
+
+            <button type="submit" class="submit-btn" data-fs-submit-btn data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
           </form>
         </div>
       </div>
@@ -459,5 +466,11 @@
       document.getElementById('navMenu').classList.toggle('active');
     });
   </script>
+
+  <script>
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '#contactForm', formId: 'xreddgjd' });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>

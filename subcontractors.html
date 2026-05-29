@@ -458,16 +458,23 @@
         <div class="section-line"></div>
       </div>
       
-      <form class="contact-form" style="max-width: 700px;">
+      <div data-fs-success style="background: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-bottom: 20px; display: none;">
+        <strong>¡Success!</strong> Your application has been sent successfully.
+      </div>
+      <div data-fs-error style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin-bottom: 20px; display: none;">
+        <strong>Error!</strong> There was an error sending your application.
+      </div>
+
+      <form class="contact-form" action="https://formspree.io/f/xreddgjd" method="POST" id="subcontractorForm" style="max-width: 700px;" enctype="multipart/form-data">
         <div class="form-group">
           <label for="companyName" data-en="Company Name" data-es="Nombre de la Empresa">Company Name</label>
-          <input type="text" id="companyName" name="companyName" required>
+          <input type="text" id="companyName" name="companyName" data-fs-field required>
         </div>
         
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
           <div class="form-group">
             <label for="contactName" data-en="Contact Name" data-es="Nombre de Contacto">Contact Name</label>
-            <input type="text" id="contactName" name="contactName" required>
+            <input type="text" id="contactName" name="contactName" data-fs-field required>
           </div>
           <div class="form-group">
             <label for="title" data-en="Title/Position" data-es="Título/Posición">Title/Position</label>
@@ -511,10 +518,16 @@
         
         <div class="form-group">
           <label for="message" data-en="Tell us about your company and capabilities" data-es="Cuéntenos sobre su empresa y capacidades">Tell us about your company and capabilities</label>
-          <textarea id="message" name="message" rows="5"></textarea>
+          <textarea id="message" name="message" rows="5" data-fs-field></textarea>
         </div>
-        
-        <button type="submit" class="btn-submit" data-en="Submit Application" data-es="Enviar Solicitud">Submit Application</button>
+
+        <div class="form-group">
+          <label for="attachments" data-en="Attach Files (Optional)" data-es="Adjuntar Archivos (Opcional)">Attach Files (Optional)</label>
+          <p style="font-size: 0.85rem; color: #718096; margin-bottom: 10px;" data-en="You can attach: resume, portfolio, references, certifications, etc." data-es="Puedes adjuntar: CV, portafolio, referencias, certificaciones, etc.">You can attach: resume, portfolio, references, certifications, etc.</p>
+          <input type="file" id="attachments" name="attachments" data-fs-field multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.zip">
+        </div>
+
+        <button type="submit" class="btn-submit" data-fs-submit-btn data-en="Submit Application" data-es="Enviar Solicitud">Submit Application</button>
       </form>
     </div>
   </section>
@@ -601,5 +614,11 @@
       document.getElementById('navMenu').classList.toggle('active');
     });
   </script>
+
+  <script>
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '#subcontractorForm', formId: 'xreddgjd' });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
