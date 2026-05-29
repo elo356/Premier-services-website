@@ -85,7 +85,7 @@ img {
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
-  height: 80px;
+  height: 160px;
 }
 
 .logo {
@@ -94,7 +94,7 @@ img {
 }
 
 .logo img {
-  height: 50px;
+  height: 140px;
   width: auto;
 }
 
@@ -444,6 +444,8 @@ img {
    ============================================ */
 .section {
   padding: 100px 5%;
+  position: relative;
+  overflow: hidden;
 }
 
 .section-dark {
@@ -490,6 +492,30 @@ img {
   height: 4px;
   background: var(--secondary-color);
   margin: 20px auto 0;
+}
+
+.pcg-logo-bg {
+  position: relative;
+  text-align: center;
+  margin: 60px 0 80px 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  background: var(--white);
+  border-radius: 15px;
+}
+
+.pcg-bg-logo {
+  width: 280px;
+  height: auto;
+  opacity: 1;
+  transition: all 0.4s ease;
+}
+
+.pcg-logo-bg:hover .pcg-bg-logo {
+  transform: scale(1.08);
 }
 
 /* ============================================
