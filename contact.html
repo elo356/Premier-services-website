@@ -467,10 +467,9 @@
     });
   </script>
 
+  <script src="https://unpkg.com/@formspree/js@^2.5.1"></script>
   <script>
-    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-    formspree('initForm', { formElement: '#contactForm', formId: 'xreddgjd' });
+    Formspree.init("xreddgjd");
   </script>
-  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
