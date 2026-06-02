@@ -464,7 +464,30 @@
 
     // Mobile menu toggle
     document.getElementById('hamburger').addEventListener('click', () => {
-      document.getElementById('navMenu').classList.toggle('active');
+      const navMenu = document.getElementById('navMenu');
+      navMenu.classList.toggle('active');
+
+      if (!navMenu.classList.contains('active')) {
+        document.querySelectorAll('.dropdown.open').forEach(dropdown => dropdown.classList.remove('open'));
+      }
+    });
+
+    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+      toggle.addEventListener('click', event => {
+        if (window.innerWidth <= 992) {
+          event.preventDefault();
+          const dropdown = toggle.closest('.dropdown');
+          const isOpen = dropdown.classList.toggle('open');
+
+          if (isOpen) {
+            document.querySelectorAll('.dropdown.open').forEach(otherDropdown => {
+              if (otherDropdown !== dropdown) {
+                otherDropdown.classList.remove('open');
+              }
+            });
+          }
+        }
+      });
     });
   </script>
 
