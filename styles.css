@@ -68,14 +68,14 @@ img {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(26, 54, 93, 0.95);
-  backdrop-filter: blur(10px);
+  background: var(--white);
   padding: 0 5%;
   transition: var(--transition);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .navbar.scrolled {
-  background: var(--primary-color);
+  background: var(--white);
   box-shadow: var(--shadow-lg);
 }
 
@@ -94,12 +94,12 @@ img {
 }
 
 .logo img {
-  height: 140px;
+  height: 220px;
   width: auto;
 }
 
 .logo-text {
-  color: var(--white);
+  color: var(--text-dark);
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -122,7 +122,7 @@ img {
 .nav-link {
   display: block;
   padding: 28px 20px;
-  color: var(--white);
+  color: var(--text-dark);
   font-size: 0.95rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -202,7 +202,7 @@ img {
   padding: 8px 16px;
   border: none;
   background: transparent;
-  color: var(--white);
+  color: var(--text-dark);
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
@@ -227,7 +227,7 @@ img {
 .hamburger span {
   width: 25px;
   height: 3px;
-  background: var(--white);
+  background: var(--text-dark);
   transition: var(--transition);
 }
 
