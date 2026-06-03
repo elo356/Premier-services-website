@@ -516,6 +516,8 @@ img {
   height: auto;
   opacity: 1;
   transition: all 0.4s ease;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .pcg-logo-bg:hover .pcg-bg-logo {
