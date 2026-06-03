@@ -100,6 +100,10 @@ img {
   -webkit-transform: translateZ(0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  image-rendering: -webkit-optimize-contrast;
+  -webkit-filter: brightness(1);
+  filter: brightness(1);
+  will-change: transform;
 }
 
 .logo-text {
@@ -1341,6 +1345,9 @@ img {
   .logo img {
     height: 5rem;
     width: auto;
+    image-rendering: -webkit-optimize-contrast;
+    -webkit-filter: brightness(1);
+    filter: brightness(1);
   }
 
   .logo-text {
