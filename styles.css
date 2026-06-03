@@ -1186,6 +1186,16 @@ img {
 /* ============================================
    Responsive Design
    ============================================ */
+@media (min-width: 769px) {
+  .logo img {
+    transform: none;
+    -webkit-transform: none;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+    isolation: isolate;
+  }
+}
+
 @media (max-width: 1200px) {
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
